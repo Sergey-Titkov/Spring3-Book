@@ -3,6 +3,8 @@
  */
 package com.apress.prospring3.ch4;
 
+import com.apress.prospring3.ch4.cdl.Dependency;
+
 /**
  * @author Clarence
  *

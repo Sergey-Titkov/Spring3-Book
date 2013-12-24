@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/app-context-xml.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/autowiring.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xmlBeanFactory.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/app-context-annotation.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/replacement.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/parent.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/lookup.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="Bundlor" manifestLocation="" jarfileLocation="spring-utility.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="template.mf" bundleActivator="" bundleSymbolicName="" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties />
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />

@@ -1,13 +1,13 @@
 /**
  * Created on Sep 20, 2011
  */
-package com.apress.prospring3.ch4;
+package com.apress.prospring3.ch4.cdl;
 
 /**
  * @author Clarence
  *
  */
-public class ContextualizedDependencyLookup implements ManagedComponent  {
+public class ContextualizedDependencyLookup implements ManagedComponent {
 
     private Dependency dependency;
 
