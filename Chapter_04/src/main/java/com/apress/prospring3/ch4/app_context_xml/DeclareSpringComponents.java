@@ -18,10 +18,14 @@ public class DeclareSpringComponents {
 		ctx.load("classpath:app-context-xml.xml");
 		ctx.refresh();
     // Стиль xml, получение бинов идентично.
-		MessageProvider messageProvider = ctx.getBean("messageProvider", MessageProvider.class);
+    // Получаем бин не по идентификатроу, а по имени.
+		MessageProvider messageProvider = ctx.getBean("messageProviderHelloWorld", MessageProvider.class);
 
     System.out.println("Стиль XML");
 		System.out.println(messageProvider.getMessage());
+    if (ctx.getBean("messageProvider", MessageProvider.class) == ctx.getBean("messageProviderHelloWorld", MessageProvider.class) ){
+      System.out.println("Демонстрация того, что способ получения по имени и способ получения по id абсолютно идентичны.");
+    }
 	}
 
 }
