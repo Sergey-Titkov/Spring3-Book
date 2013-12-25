@@ -3,6 +3,7 @@
  */
 package com.apress.prospring3.ch4.notcomlited.annotation.кщще;
 
+import com.apress.prospring3.ch4.app_context_annotation.MessageRenderer;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**

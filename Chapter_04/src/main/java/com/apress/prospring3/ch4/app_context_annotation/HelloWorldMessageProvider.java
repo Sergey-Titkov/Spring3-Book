@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
  * @author Clarence
  *
  */
+// Указание на то, что бин предоставляет службы другим бинам
 @Service("messageProvider")
 public class HelloWorldMessageProvider implements MessageProvider {
 

@@ -15,7 +15,7 @@
 
 	<!-- Sample for setter injection -->
     <!--
-	<bean id="messageRenderer" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.StandardOutMessageRenderer">
+	<bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer">
 		<property name="messageProvider">
 			<ref bean="messageProvider"/>
 		</property>
@@ -25,7 +25,7 @@
 	<!-- Sample for setter injection -->	
 	<!-- This bean is the same as above, just used to p namespace -->
   <!--
-<bean id="messageRenderer" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.StandardOutMessageRenderer"
+<bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
   p:messageProvider-ref="messageProvider"/>
 -->
 <!-- Sample for bean declaration -->
