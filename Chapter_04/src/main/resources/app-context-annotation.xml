@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Пространства имен:
+    context. Пространство имен context обеспечивает поддержку для конфигурирования ApplicationContext.
+    р. Пространство имен р предоставляет более простую конфигурацию DI для Setter Injection.
+    с. Появившееся в версии Spring 3.1, пространство имен с предлагает более простую конфигурацию DI для Constructor Injection.
+    util. Пространство имен util предоставляет ряд полезных утилит для конфигуации DI.
+-->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -11,18 +19,26 @@
 
 	<description>ProSpring 3 Chapter 4 - Spring annotation support.</description>
 
-	<!-- Inform Spring to scan the annotation within codes for DI requirements -->
+	<!-- Конфигурируем сканирование на аннотации -->
 	<context:annotation-config/>
 
-    <!-- Inform Spring to scan the injectable components base on packages -->
-    <context:component-scan base-package="com.apress.prospring3.ch4.annotation;com.apress.prospring3.ch4.annotation1">
-        <context:exclude-filter type="assignable" expression="com.apress.prospring3.ch4.annotation1.Bean2"/>
+  <!-- Перечень, где искать аннотаци, в документации следует посмотреть рассширенные примеры. -->
+  <context:component-scan base-package="com.apress.prospring3.ch4.app_context_annotation">
+    <!-- Исключение по фильтру. -->
+    <context:exclude-filter type="assignable" expression="com.apress.prospring3.ch4.notcomlited.annotation.annotation1.Bean2"/>
+  <!--
+    <context:component-scan base-package="com.apress.prospring3.ch4.notcomlited.annotation;com.apress.prospring3.ch4.notcomlited.annotation.annotation1">
+        <context:exclude-filter type="assignable" expression="com.apress.prospring3.ch4.notcomlited.annotation.annotation1.Bean2"/>
+    -->
     </context:component-scan>
-    
     <!-- Sample for constructor injection -->
-    <bean id="message" class="java.lang.String"
-        c:_0="This is a configurable message"/>
-    <!-- Sample for collection injection -->
+  <!--
+
+      <bean id="message" class="java.lang.String"
+          c:_0="This is a configurable message"/>
+-->
+      <!-- Sample for collection injection -->
+<!--
     <util:map id="map" map-class="java.util.HashMap">
         <entry key="someValue">
             <value>Hello World!</value>
@@ -45,5 +61,6 @@
     <util:list id="list">
         <value>Hello World!</value>
         <ref bean="oracle"/> 
-    </util:list>            	
+    </util:list>
+-->
 </beans>
