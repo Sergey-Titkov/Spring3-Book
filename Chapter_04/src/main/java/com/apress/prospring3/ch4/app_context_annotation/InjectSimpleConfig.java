@@ -5,12 +5,18 @@ package com.apress.prospring3.ch4.app_context_annotation;
 
 import org.springframework.stereotype.Component;
 
-
 /**
  * @author Clarence
  *
  */
 @Component("injectSimpleConfig")
+/*
+В основном применение @Component дает тот же самый эффект, что и @Service. Обе аннотации инструктируют Spring о том,
+что аннотированный класс является кандидатом на автоматическое обнаружение с применением конфигурации, основанной на
+аннотациях, и сканирования в пути классов. Однако поскольку класс InjectSimpleConfig хранит конфигурацию приложения,
+а не предоставляет бизнес-службу, использование @Component имеет больший смысл. На практике @Service является специализацией
+(@Component, отражающей тот факт, что аннотированный класс предоставляет бизнесслужбу другим уровням в рамках приложения.
+*/
 public class InjectSimpleConfig {
 
     private String name = "John Smith";
