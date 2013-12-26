@@ -1,7 +1,7 @@
 /**
  * Created on Sep 21, 2011
  */
-package com.apress.prospring3.ch4.notcomlited.annotation;
+package com.apress.prospring3.ch4.app_context_annotation;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -28,17 +28,6 @@ public class InjectSimple {
 
 	@Value("1103760000")
     private Long ageInSeconds;
-
-    public static void main(String[] args) {
-
-    	GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		ctx.load("classpath:app-context-annotation.xml");
-		ctx.refresh();    	
-    	
-        InjectSimple simple = (InjectSimple)ctx.getBean("injectSimple");
-        ctx.getBean("injectRef");
-        System.out.println(simple);
-    }
 
     public void setAgeInSeconds(Long ageInSeconds) {
         this.ageInSeconds = ageInSeconds;

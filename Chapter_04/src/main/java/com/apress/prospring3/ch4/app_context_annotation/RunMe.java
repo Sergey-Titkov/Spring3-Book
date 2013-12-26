@@ -9,7 +9,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
  * @author Clarence
  * Стиль аннотаций, получение бинов идентично.
  */
-public class DeclareSpringComponents {
+public class RunMe {
 
 	public static void main(String[] args) {
 
@@ -41,6 +41,10 @@ public class DeclareSpringComponents {
     System.out.println("Демонстрация внедрения через конструктор, в случае если конструкторов несколько.");
     // В случае аннотаций мы указываем какой именно конструктор будет австосвязан
     System.out.println( (ConstructorConfusion)ctx.getBean("constructorConfusion", ConstructorConfusion.class));
-	}
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения простых значений.");
+    System.out.println( (InjectSimple)ctx.getBean("injectSimple", InjectSimple.class));
+    }
 
 }
