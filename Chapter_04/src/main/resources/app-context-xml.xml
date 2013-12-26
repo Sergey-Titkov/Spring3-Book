@@ -38,31 +38,38 @@
   </bean>
   -->
   <!-- Внедряемся через конструктор, с использоавние пространства имен с -->
+  <!-- c:<имя поля в конструктор>  -->
   <bean id="сonfigurableMessageProvider" class="com.apress.prospring3.ch4.app_context_xml.ConfigurableMessageProvider"
         c:message="Это значение пришло из xml"
     />
-
+<!--         c:message="Это значение пришло из xml"
+-->
+  <!-- Внедряемся через конструктор, с использоавние пространства имен с -->
   <bean id="сonfigurableStandardOutMessageRenderer"
         class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
         p:messageProvider-ref="сonfigurableMessageProvider"/>
 
-
-
-
-
-
-  <!-- Sample for bean declaration -->
+  <!-- Внедряемся через конструктор, несколько конструкторов -->
   <!--
-<bean id="messageProvider" class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
-  -->
-
-  <!-- Sample for constructor injection -->
+  <bean id="constructorConfusion" class="com.apress.prospring3.ch4.app_context_xml.ConstructorConfusion" lazy-init="true">
+      <constructor-arg type="Integer">
+          <value>90</value>
+      </constructor-arg>
+  </bean>
+-->
   <!--
-  <bean id="messageProvider" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConfigurableMessageProvider"
-      c:message="This is a configurable message"/>
+    Внедряемся через конструктор, с использоавние пространства имен "с", при использовании пространства имен "c"
+    мы не можем указать тип, но можем указать имя параметра в конструкторе
   -->
+  <!-- c:<имя поля в конструкторе>  -->
+  <!-- c:_<порядковый номре аргумента>  -->
+  <bean id="constructorConfusion" class="com.apress.prospring3.ch4.app_context_xml.ConstructorConfusion"
+        lazy-init="true"
+        c:someValueInteger="90"
+    />
 
-  <!-- Sample for constructor confusion -->
+
+  <!--  type="int"  Sample for constructor confusion -->
   <!--
   <bean id="constructorConfusion" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConstructorConfusion">
       <constructor-arg type="int">

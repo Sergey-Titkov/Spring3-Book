@@ -36,6 +36,11 @@ public class DeclareSpringComponents {
     // несколько бинов с разными внедрениями. Поэтому пришлось создать отдлеьный класс.
     messageRendere = ctx.getBean("сonfigurableStandardOutMessageRenderer", MessageRenderer.class);
     messageRendere.render();
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения через конструктор, в случае если конструкторов несколько.");
+    // В случае аннотаций мы указываем какой именно конструктор будет австосвязан
+    System.out.println( (ConstructorConfusion)ctx.getBean("constructorConfusion", ConstructorConfusion.class));
 	}
 
 }

@@ -37,6 +37,11 @@ public class DeclareSpringComponents {
     // В случае использоания XML никаких танцев дополнительных не нужно. И класс не нужно дополнительный создавать.
     messageRenderer = ctx.getBean("сonfigurableStandardOutMessageRenderer", MessageRenderer.class);
     messageRenderer.render();
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения через конструктор, в случае если конструкторов несколько.");
+    // В случае аннотаций мы указываем какой именно конструктор будет австосвязан
+    System.out.println( (ConstructorConfusion)ctx.getBean("constructorConfusion", ConstructorConfusion.class));
 	}
 
 }
