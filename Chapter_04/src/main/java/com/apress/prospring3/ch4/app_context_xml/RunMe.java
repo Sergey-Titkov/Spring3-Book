@@ -45,6 +45,10 @@ public class RunMe {
     System.out.println("");
     System.out.println("Демонстрация внедрения простых значений.");
     System.out.println((InjectSimple) ctx.getBean("injectSimple", InjectSimple.class));
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения простых значений с использованием SPeL.");
+    System.out.println((InjectSimpleSpel) ctx.getBean("injectSimpleSpel", InjectSimpleSpel.class));
   }
 
 }
