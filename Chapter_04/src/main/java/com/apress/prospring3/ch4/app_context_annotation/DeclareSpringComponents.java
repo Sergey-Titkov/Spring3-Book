@@ -22,10 +22,20 @@ public class DeclareSpringComponents {
     System.out.println("Стиль Аннотаций");
 		System.out.println(messageProvider.getMessage());
 
+    // Он у нас один на всех.
+    MessageRenderer messageRendere;
+
     System.out.println("");
     System.out.println("Демонстрация внедрения через метод установки");
-    MessageRenderer messageRenderer = ctx.getBean("messageRenderer", MessageRenderer.class);
-    messageRenderer.render();
+    messageRendere = ctx.getBean("messageRenderer", MessageRenderer.class);
+    messageRendere.render();
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения через конструктор.");
+    // Вот тут начались танцы с бубном, дело в том, что я не знаю как заставить сприг сгенерить атвоматически
+    // несколько бинов с разными внедрениями. Поэтому пришлось создать отдлеьный класс.
+    messageRendere = ctx.getBean("сonfigurableStandardOutMessageRenderer", MessageRenderer.class);
+    messageRendere.render();
 	}
 
 }
