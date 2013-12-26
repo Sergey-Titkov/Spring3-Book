@@ -26,9 +26,16 @@ public class DeclareSpringComponents {
       System.out.println("Демонстрация того, что способ получения по имени и способ получения по id абсолютно идентичны.");
     }
 
+    MessageRenderer messageRenderer;
+
     System.out.println("");
     System.out.println("Демонстрация внедрения через метод установки");
-    MessageRenderer messageRenderer = ctx.getBean("messageRenderer", MessageRenderer.class);
+    messageRenderer = ctx.getBean("messageRenderer", MessageRenderer.class);
+    messageRenderer.render();
+    System.out.println("");
+    System.out.println("Демонстрация внедрения через конструктор.");
+    // В случае использоания XML никаких танцев дополнительных не нужно. И класс не нужно дополнительный создавать.
+    messageRenderer = ctx.getBean("сonfigurableStandardOutMessageRenderer", MessageRenderer.class);
     messageRenderer.render();
 	}
 

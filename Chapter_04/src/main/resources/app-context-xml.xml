@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:c="http://www.springframework.org/schema/c"	
-	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 
   <!-- oracle bean used for a few examples -->
-  <bean id="messageProvider" name="messageProviderHelloWorld" class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
+  <bean id="messageProvider" name="messageProviderHelloWorld"
+        class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
 
-	<!-- Внедрение через метод установки, классический способ -->
+  <!-- Внедрение через метод установки, классический способ -->
   <!--
   <bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer">
 		<property name="messageProvider">
@@ -24,27 +25,44 @@
 
   <!-- Внедрение через метод установки, при подключенно пространстве имен p -->
   <bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
-  p:messageProvider-ref="messageProvider"/>
-<!-- Sample for bean declaration -->
-    <!--
-	<bean id="messageProvider" class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
-    -->
+        p:messageProvider-ref="messageProvider"/>
 
-    <!-- Sample for constructor injection -->
+
+  <!-- Внедряемся через конструктор, классический вариант -->
   <!--
-  <bean id="messageProvider" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConfigurableMessageProvider">
-      <constructor-arg>
-          <value>This is a configurable message</value>
-      </constructor-arg>
-  </bean>
--->
-  <!-- Sample for constructor injection -->
-    <!--
-    <bean id="messageProvider" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConfigurableMessageProvider"
-        c:message="This is a configurable message"/>
-    -->
+  <bean id="сonfigurableMessageProvider" class="com.apress.prospring3.ch4.app_context_xml.ConfigurableMessageProvider">
 
-    <!-- Sample for constructor confusion -->
+    <constructor-arg>
+        <value>Это значение пришло из xml</value>
+    </constructor-arg>
+  </bean>
+  -->
+  <!-- Внедряемся через конструктор, с использоавние пространства имен с -->
+  <bean id="сonfigurableMessageProvider" class="com.apress.prospring3.ch4.app_context_xml.ConfigurableMessageProvider"
+        c:message="Это значение пришло из xml"
+    />
+
+  <bean id="сonfigurableStandardOutMessageRenderer"
+        class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
+        p:messageProvider-ref="сonfigurableMessageProvider"/>
+
+
+
+
+
+
+  <!-- Sample for bean declaration -->
+  <!--
+<bean id="messageProvider" class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
+  -->
+
+  <!-- Sample for constructor injection -->
+  <!--
+  <bean id="messageProvider" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConfigurableMessageProvider"
+      c:message="This is a configurable message"/>
+  -->
+
+  <!-- Sample for constructor confusion -->
   <!--
   <bean id="constructorConfusion" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConstructorConfusion">
       <constructor-arg type="int">
@@ -101,15 +119,15 @@
   <bean id="oracle" name="wiseworm" class="com.apress.prospring3.ch4.simple.BookwormOracle"/>
 -->
   <!-- inject ref sample (using id) -->
-    <!--
-    <bean id="injectRef" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.InjectRef">
-        <property name="oracle">
-            <ref local="oracle"/>
-        </property>
-    </bean>
-    -->
-    
-    <!-- inject ref sample (using name) -->
+  <!--
+  <bean id="injectRef" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.InjectRef">
+      <property name="oracle">
+          <ref local="oracle"/>
+      </property>
+  </bean>
+  -->
+
+  <!-- inject ref sample (using name) -->
   <!--
   <bean name="injectRef" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.InjectRef">
       <property name="oracle">
@@ -118,33 +136,33 @@
   </bean>
 -->
   <!-- hierarchical application contexts -->
-    <!--
-    <bean id="injectBean" class="java.lang.String">
-        <constructor-arg>
-            <value>Bean In Child</value>
-        </constructor-arg>
-    </bean>
-    
-    <bean id="target1" class="com.apress.prospring3.ch4.notcomlited.annotation.кщще.SimpleTarget">
-        <property name="val">
-            <ref bean="injectBeanParent"/>
-        </property>
-    </bean>
-    
-    <bean id="target2" class="com.apress.prospring3.ch4.notcomlited.annotation.кщще.SimpleTarget">
-        <property name="val">
-            <ref bean="injectBean"/>
-        </property>
-    </bean>
-    
-    <bean id="target3" class="com.apress.prospring3.ch4.notcomlited.annotation.кщще.SimpleTarget">
-        <property name="val">
-            <ref parent="injectBean"/>
-        </property>
-    </bean>
-    -->
+  <!--
+  <bean id="injectBean" class="java.lang.String">
+      <constructor-arg>
+          <value>Bean In Child</value>
+      </constructor-arg>
+  </bean>
 
-    <!-- collection injection samples -->
+  <bean id="target1" class="com.apress.prospring3.ch4.notcomlited.annotation.кщще.SimpleTarget">
+      <property name="val">
+          <ref bean="injectBeanParent"/>
+      </property>
+  </bean>
+
+  <bean id="target2" class="com.apress.prospring3.ch4.notcomlited.annotation.кщще.SimpleTarget">
+      <property name="val">
+          <ref bean="injectBean"/>
+      </property>
+  </bean>
+
+  <bean id="target3" class="com.apress.prospring3.ch4.notcomlited.annotation.кщще.SimpleTarget">
+      <property name="val">
+          <ref parent="injectBean"/>
+      </property>
+  </bean>
+  -->
+
+  <!-- collection injection samples -->
   <!--
   <bean id="injectCollection" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.CollectionInjection">
       <property name="map">
