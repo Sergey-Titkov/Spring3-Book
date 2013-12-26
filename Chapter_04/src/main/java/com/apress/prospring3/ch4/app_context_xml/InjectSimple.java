@@ -1,30 +1,21 @@
 /**
  * Created on Sep 21, 2011
  */
-package com.apress.prospring3.ch4.app_context_annotation;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+package com.apress.prospring3.ch4.app_context_xml;
 
 /**
  * @author Clarence
  */
-@Service("injectSimple")
 public class InjectSimple {
 
-  @Value("John Smith")
   private String name;
 
-  @Value("35")
   private int age;
 
-  @Value("1.78")
   private float height;
 
-  @Value("true")
   private boolean programmer;
 
-  @Value("1103760000")
   private Long ageInSeconds;
 
   public void setAgeInSeconds(Long ageInSeconds) {

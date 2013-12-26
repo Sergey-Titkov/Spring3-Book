@@ -7,20 +7,20 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
  * @author Clarence
- * Стиль аннотаций, получение бинов идентично.
+ *         Стиль аннотаций, получение бинов идентично.
  */
 public class RunMe {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		ctx.load("classpath:app-context-annotation.xml");
-		ctx.refresh();		
-		// Стиль аннотаций, получение бинов идентично.
-		MessageProvider messageProvider = ctx.getBean("messageProvider", MessageProvider.class);
+    GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+    ctx.load("classpath:app-context-annotation.xml");
+    ctx.refresh();
+    // Стиль аннотаций, получение бинов идентично.
+    MessageProvider messageProvider = ctx.getBean("messageProvider", MessageProvider.class);
 
     System.out.println("Стиль Аннотаций");
-		System.out.println(messageProvider.getMessage());
+    System.out.println(messageProvider.getMessage());
 
     // Он у нас один на всех.
     MessageRenderer messageRendere;
@@ -40,11 +40,17 @@ public class RunMe {
     System.out.println("");
     System.out.println("Демонстрация внедрения через конструктор, в случае если конструкторов несколько.");
     // В случае аннотаций мы указываем какой именно конструктор будет австосвязан
-    System.out.println( (ConstructorConfusion)ctx.getBean("constructorConfusion", ConstructorConfusion.class));
+    System.out.println((ConstructorConfusion) ctx.getBean("constructorConfusion", ConstructorConfusion.class));
 
     System.out.println("");
     System.out.println("Демонстрация внедрения простых значений.");
-    System.out.println( (InjectSimple)ctx.getBean("injectSimple", InjectSimple.class));
-    }
+    System.out.println((InjectSimple) ctx.getBean("injectSimple", InjectSimple.class));
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения простых значений с использованием SPeL.");
+    System.out.println((InjectSimpleSpel) ctx.getBean("injectSimpleSpel", InjectSimpleSpel.class));
+
+
+  }
 
 }

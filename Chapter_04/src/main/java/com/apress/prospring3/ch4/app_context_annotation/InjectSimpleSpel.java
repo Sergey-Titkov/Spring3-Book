@@ -9,22 +9,22 @@ import org.springframework.stereotype.Service;
 /**
  * @author Clarence
  */
-@Service("injectSimple")
-public class InjectSimple {
+@Service("injectSimpleSpel")
+public class InjectSimpleSpel {
 
-  @Value("John Smith")
+  @Value("#{injectSimpleConfig.name + \" Испорченно SPeL\"}")
   private String name;
 
-  @Value("35")
+  @Value("#{injectSimpleConfig.age + 1}")
   private int age;
 
-  @Value("1.78")
+  @Value("#{injectSimpleConfig.height}")
   private float height;
 
-  @Value("true")
+  @Value("#{injectSimpleConfig.programmer}")
   private boolean programmer;
 
-  @Value("1103760000")
+  @Value("#{injectSimpleConfig.ageInSeconds}")
   private Long ageInSeconds;
 
   public void setAgeInSeconds(Long ageInSeconds) {
