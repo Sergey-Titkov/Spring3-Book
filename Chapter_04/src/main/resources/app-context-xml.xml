@@ -42,9 +42,10 @@
   <bean id="сonfigurableMessageProvider" class="com.apress.prospring3.ch4.app_context_xml.ConfigurableMessageProvider"
         c:message="Это значение пришло из xml"
     />
-<!--         c:message="Это значение пришло из xml"
--->
-  <!-- Внедряемся через конструктор, с использоавние пространства имен с -->
+  <!-- Внедряемся через установщие, с использоавние пространства имен p -->
+  <!-- p:<имя аргумента в сеттере>  -->
+  <!-- p:_<порядковый номер аргумента в сеттере>  -->
+
   <bean id="сonfigurableStandardOutMessageRenderer"
         class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
         p:messageProvider-ref="сonfigurableMessageProvider"/>
@@ -61,8 +62,8 @@
     Внедряемся через конструктор, с использоавние пространства имен "с", при использовании пространства имен "c"
     мы не можем указать тип, но можем указать имя параметра в конструкторе
   -->
-  <!-- c:<имя поля в конструкторе>  -->
-  <!-- c:_<порядковый номре аргумента>  -->
+  <!-- c:<имя аргумента в конструкторе>  -->
+  <!-- c:_<ппорядковый номер аргумента в конструкторе>  -->
   <bean id="constructorConfusion" class="com.apress.prospring3.ch4.app_context_xml.ConstructorConfusion"
         lazy-init="true"
         c:someValueInteger="90"
@@ -70,21 +71,21 @@
 
   <!-- Внедрение простых значенй -->
   <bean id="injectSimple" class="com.apress.prospring3.ch4.app_context_xml.InjectSimple">
-      <property name="name">
-          <value>John Smith</value>
-      </property>
-      <property name="age">
-          <value>35</value>
-      </property>
-      <property name="height">
-          <value>1.78</value>
-      </property>
-      <property name="programmer">
-          <value>true</value>
-      </property>
-      <property name="ageInSeconds">
-          <value>1103760000</value>
-      </property>
+    <property name="name">
+      <value>John Smith</value>
+    </property>
+    <property name="age">
+      <value>35</value>
+    </property>
+    <property name="height">
+      <value>1.78</value>
+    </property>
+    <property name="programmer">
+      <value>true</value>
+    </property>
+    <property name="ageInSeconds">
+      <value>1103760000</value>
+    </property>
   </bean>
 
   <!-- Внедрение простых значенй с использованием SPeL -->
@@ -93,21 +94,21 @@
 
   <!-- Внедрение -->
   <bean id="injectSimpleSpel" class="com.apress.prospring3.ch4.app_context_xml.InjectSimpleSpel">
-      <property name="name">
-          <value>#{injectSimpleConfig.name + " Это текст в XML"}</value>
-      </property>
-      <property name="age">
-          <value>#{injectSimpleConfig.age + 1}</value>
-      </property>
-      <property name="height">
-          <value>#{injectSimpleConfig.height}</value>
-      </property>
-      <property name="programmer">
-          <value>#{injectSimpleConfig.programmer}</value>
-      </property>
-      <property name="ageInSeconds">
-          <value>#{injectSimpleConfig.ageInSeconds}</value>
-      </property>
+    <property name="name">
+      <value>#{injectSimpleConfig.name + " Это текст в XML"}</value>
+    </property>
+    <property name="age">
+      <value>#{injectSimpleConfig.age + 1}</value>
+    </property>
+    <property name="height">
+      <value>#{injectSimpleConfig.height}</value>
+    </property>
+    <property name="programmer">
+      <value>#{injectSimpleConfig.programmer}</value>
+    </property>
+    <property name="ageInSeconds">
+      <value>#{injectSimpleConfig.ageInSeconds}</value>
+    </property>
   </bean>
 
   <!--  type="int"  Sample for constructor confusion -->
