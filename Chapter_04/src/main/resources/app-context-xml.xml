@@ -111,6 +111,28 @@
     </property>
   </bean>
 
+
+  <!-- Внедрение бинов -->
+  <!-- oracle bean used for a few examples -->
+  <bean id="oracle" name="wiseworm" class="com.apress.prospring3.ch4.app_context_xml.BookwormOracle"/>
+
+  <!-- Внедрение бина по id -->
+  <bean id="injectRefID" class="com.apress.prospring3.ch4.app_context_xml.InjectRef" lazy-init="true">
+      <property name="oracle">
+          <ref local="oracle"/>
+      </property>
+  </bean>
+
+  <!-- Внедрение бина по имени -->
+  <bean name="injectRefName" class="com.apress.prospring3.ch4.app_context_xml.InjectRef" lazy-init="true">
+      <property name="oracle">
+          <ref bean="wiseworm"/>
+      </property>
+  </bean>
+
+
+
+
   <!--  type="int"  Sample for constructor confusion -->
   <!--
   <bean id="constructorConfusion" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.ConstructorConfusion">
@@ -122,27 +144,6 @@
   <!-- injecting values using SpEL -->
   <!--
   <bean id="injectSimpleConfig" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.InjectSimpleConfig"/>
--->
-  <!-- oracle bean used for a few examples -->
-  <!--
-  <bean id="oracle" name="wiseworm" class="com.apress.prospring3.ch4.simple.BookwormOracle"/>
--->
-  <!-- inject ref sample (using id) -->
-  <!--
-  <bean id="injectRef" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.InjectRef">
-      <property name="oracle">
-          <ref local="oracle"/>
-      </property>
-  </bean>
-  -->
-
-  <!-- inject ref sample (using name) -->
-  <!--
-  <bean name="injectRef" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.InjectRef">
-      <property name="oracle">
-          <ref bean="wiseworm"/>
-      </property>
-  </bean>
 -->
   <!-- hierarchical application contexts -->
   <!--

@@ -1,17 +1,12 @@
 /**
  * Created on Sep 21, 2011
  */
-package com.apress.prospring3.ch4.notcomlited.annotation;
-
-import org.springframework.stereotype.Service;
-
-import com.apress.prospring3.ch4.simple.Oracle;
+package com.apress.prospring3.ch4.app_context_xml;
 
 /**
  * @author Clarence
  *
  */
-@Service("injectRef")
 public class InjectRef {
 
     private Oracle oracle;
