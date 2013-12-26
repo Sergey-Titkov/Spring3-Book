@@ -22,7 +22,8 @@ public class DeclareSpringComponents {
     System.out.println("Стиль Аннотаций");
 		System.out.println(messageProvider.getMessage());
 
-    // Демонстрация внедрения через метод установки
+    System.out.println("");
+    System.out.println("Демонстрация внедрения через метод установки");
     MessageRenderer messageRenderer = ctx.getBean("messageRenderer", MessageRenderer.class);
     messageRenderer.render();
 	}

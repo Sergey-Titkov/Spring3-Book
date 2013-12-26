@@ -3,8 +3,6 @@
  */
 package com.apress.prospring3.ch4.app_context_xml;
 
-import com.apress.prospring3.ch4.app_context_annotation.MessageProvider;
-import com.apress.prospring3.ch4.app_context_annotation.MessageRenderer;
 
 /**
  * @author Clarence
@@ -15,6 +13,7 @@ public class StandardOutMessageRenderer implements MessageRenderer {
     private MessageProvider messageProvider = null;
 	
 	public void render() {
+    System.out.println("Метод: " + this.getClass().getName() + ".render");
         if (messageProvider == null) {
             throw new RuntimeException(
                     "You must set the property messageProvider of class:"

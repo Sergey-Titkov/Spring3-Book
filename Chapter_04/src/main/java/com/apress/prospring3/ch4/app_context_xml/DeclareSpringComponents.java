@@ -3,7 +3,6 @@
  */
 package com.apress.prospring3.ch4.app_context_xml;
 
-import com.apress.prospring3.ch4.app_context_annotation.MessageProvider;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
@@ -26,6 +25,11 @@ public class DeclareSpringComponents {
     if (ctx.getBean("messageProvider", MessageProvider.class) == ctx.getBean("messageProviderHelloWorld", MessageProvider.class) ){
       System.out.println("Демонстрация того, что способ получения по имени и способ получения по id абсолютно идентичны.");
     }
+
+    System.out.println("");
+    System.out.println("Демонстрация внедрения через метод установки");
+    MessageRenderer messageRenderer = ctx.getBean("messageRenderer", MessageRenderer.class);
+    messageRenderer.render();
 	}
 
 }

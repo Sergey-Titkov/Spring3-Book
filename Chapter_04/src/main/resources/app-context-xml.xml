@@ -13,21 +13,18 @@
   <!-- oracle bean used for a few examples -->
   <bean id="messageProvider" name="messageProviderHelloWorld" class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
 
-	<!-- Sample for setter injection -->
-    <!--
-	<bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer">
+	<!-- Внедрение через метод установки, классический способ -->
+  <!--
+  <bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer">
 		<property name="messageProvider">
 			<ref bean="messageProvider"/>
 		</property>
 	</bean>
-	-->
+  -->
 
-	<!-- Sample for setter injection -->	
-	<!-- This bean is the same as above, just used to p namespace -->
-  <!--
-<bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
+  <!-- Внедрение через метод установки, при подключенно пространстве имен p -->
+  <bean id="messageRenderer" class="com.apress.prospring3.ch4.app_context_xml.StandardOutMessageRenderer"
   p:messageProvider-ref="messageProvider"/>
--->
 <!-- Sample for bean declaration -->
     <!--
 	<bean id="messageProvider" class="com.apress.prospring3.ch4.app_context_xml.HelloWorldMessageProvider"/>
