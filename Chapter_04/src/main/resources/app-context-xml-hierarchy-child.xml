@@ -3,4 +3,39 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+  <!-- В случае использования xml можно напрямую в файле указывать родительский контекст, а не явно в коде -->
+  <bean id="injectBean" class="java.lang.String">
+    <constructor-arg>
+      <value>Bean In Child</value>
+    </constructor-arg>
+  </bean>
+
+  <bean id="injectBeanChild" class="java.lang.String">
+    <constructor-arg>
+      <value>Bean In Child</value>
+    </constructor-arg>
+  </bean>
+
+  <!-- Обращаемся к бину родительского контекста. По уникальному имени.-->
+  <bean id="сhild01" class="com.apress.prospring3.ch4.app_context_xml.SimpleTarget">
+    <property name="val">
+      <ref bean="injectBeanParent"/>
+    </property>
+  </bean>
+
+  <!-- Явно обращаемся к бину родительского контекста. С помощью директивы  parent.-->
+  <bean id="сhild02" class="com.apress.prospring3.ch4.app_context_xml.SimpleTarget">
+    <property name="val">
+      <ref parent="injectBean"/>
+    </property>
+  </bean>
+
+  <!-- Обращаемся к бину этого контекста. Он "главнее" одноименного бина из родительского контекста.-->
+  <bean id="сhild03" class="com.apress.prospring3.ch4.app_context_xml.SimpleTarget">
+    <property name="val">
+      <ref bean="injectBean"/>
+    </property>
+  </bean>
+
+
 </beans>

@@ -1,7 +1,7 @@
 /**
  * Created on Sep 21, 2011
  */
-package com.apress.prospring3.ch4.notcomlited.annotation.кщще;
+package com.apress.prospring3.ch4.app_context_xml;
 
 /**
  * @author Clarence

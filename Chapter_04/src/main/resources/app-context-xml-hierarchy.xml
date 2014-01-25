@@ -3,4 +3,25 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+  <bean id="injectBean" class="java.lang.String">
+    <constructor-arg>
+      <value>Bean In Parent</value>
+    </constructor-arg>
+  </bean>
+
+  <bean id="injectBeanParent" class="java.lang.String">
+    <constructor-arg>
+      <value>Bean In Parent</value>
+    </constructor-arg>
+  </bean>
+
+  <!-- Обращаюсь к бину этого контекста -->
+  <bean id="parent01" class="com.apress.prospring3.ch4.app_context_xml.SimpleTarget">
+    <property name="val">
+      <ref bean="injectBean"/>
+    </property>
+  </bean>
+
+  <!-- Обращаюсь к бину дочернего контекста, даже по явно по уникальному имени невозможно -->
+
 </beans>
