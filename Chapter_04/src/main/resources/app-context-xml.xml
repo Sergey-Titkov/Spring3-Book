@@ -118,19 +118,58 @@
 
   <!-- Внедрение бина по id -->
   <bean id="injectRefID" class="com.apress.prospring3.ch4.app_context_xml.InjectRef" lazy-init="true">
-      <property name="oracle">
-          <ref local="oracle"/>
-      </property>
+    <property name="oracle">
+      <ref local="oracle"/>
+    </property>
   </bean>
 
   <!-- Внедрение бина по имени -->
   <bean name="injectRefName" class="com.apress.prospring3.ch4.app_context_xml.InjectRef" lazy-init="true">
-      <property name="oracle">
-          <ref bean="wiseworm"/>
-      </property>
+    <property name="oracle">
+      <ref bean="wiseworm"/>
+    </property>
   </bean>
 
-
+  <!-- Внедрение коллекций -->
+  <bean id="injectCollection" class="com.apress.prospring3.ch4.app_context_xml.CollectionInjection">
+    <property name="map">
+      <map>
+        <entry key="someValue">
+          <value>Hello World!</value>
+        </entry>
+        <entry key="someBean">
+          <ref local="oracle"/>
+        </entry>
+      </map>
+    </property>
+    <property name="props">
+      <props>
+        <prop key="firstName">Clarence</prop>
+        <prop key="secondName">Ho</prop>
+      </props>
+    </property>
+    <property name="set">
+      <set>
+        <!-- Это множество, оно не дупускает повторяющиеся элементы -->
+        <value>Hello World!</value>
+        <value>Hello World!</value>
+        <value>Hello World!</value>
+        <value>Hello World!</value>
+        <ref local="oracle"/>
+        <ref local="oracle"/>
+        <ref local="oracle"/>
+      </set>
+    </property>
+    <property name="list">
+      <list>
+        <!-- Лист допускает повторяющиеся элементы -->
+        <value>Hello World!</value>
+        <value>Hello World!</value>
+        <ref local="oracle"/>
+        <ref local="oracle"/>
+      </list>
+    </property>
+  </bean>
 
 
   <!--  type="int"  Sample for constructor confusion -->
@@ -147,39 +186,6 @@
 -->
 
 
-  <!-- collection injection samples -->
-  <!--
-  <bean id="injectCollection" class="com.apress.prospring3.ch4.notcomlited.annotation.xml.CollectionInjection">
-      <property name="map">
-          <map>
-              <entry key="someValue">
-                  <value>Hello World!</value>
-              </entry>
-              <entry key="someBean">
-                  <ref local="oracle"/>
-              </entry>
-          </map>
-      </property>
-      <property name="props">
-          <props>
-              <prop key="firstName">Clarence</prop>
-              <prop key="secondName">Ho</prop>
-          </props>
-      </property>
-      <property name="set">
-          <set>
-              <value>Hello World!</value>
-              <ref local="oracle"/>
-          </set>
-      </property>
-      <property name="list">
-          <list>
-              <value>Hello World!</value>
-              <ref local="oracle"/>
-          </list>
-      </property>
-  </bean>
--->
   <!-- aliasing examples -->
   <!--
   <bean id="name1" name="name2 name3,name4;name5" class="java.lang.String"/>

@@ -36,30 +36,29 @@
   <!-- Это строковая константа для демонстрации внедерния через конструктор -->
   <bean id="message" class="java.lang.String"
         c:_0="This is a configurable message"/>
-  <!-- Sample for collection injection -->
-  <!--
-      <util:map id="map" map-class="java.util.HashMap">
-          <entry key="someValue">
-              <value>Hello World!</value>
-          </entry>
-          <entry key="someBean">
-              <ref bean="oracle"/>
-          </entry>
-      </util:map>
 
-      <util:properties id="props">
-          <prop key="firstName">Clarence</prop>
-          <prop key="secondName">Ho</prop>
-      </util:properties>
+  <!-- Демонстрация внедрения через аннотации. Обратить внимание на пространство имен util! -->
+  <util:map id="map" map-class="java.util.HashMap">
+    <entry key="someValue">
+      <value>Hello World!</value>
+    </entry>
+    <entry key="someBean">
+      <ref bean="oracle"/>
+    </entry>
+  </util:map>
 
-      <util:set id="set">
-         <value>Hello World!</value>
-          <ref bean="oracle"/>
-      </util:set>
+  <util:properties id="props">
+    <prop key="firstName">Clarence</prop>
+    <prop key="secondName">Ho</prop>
+  </util:properties>
 
-      <util:list id="list">
-          <value>Hello World!</value>
-          <ref bean="oracle"/>
-      </util:list>
-  -->
+  <util:set id="set">
+    <value>Hello World!</value>
+    <ref bean="oracle"/>
+  </util:set>
+
+  <util:list id="list">
+    <value>Hello World!</value>
+    <ref bean="oracle"/>
+  </util:list>
 </beans>

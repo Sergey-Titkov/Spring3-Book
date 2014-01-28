@@ -58,6 +58,11 @@ public class RunMe {
     System.out.println("Демонстрация внедрения бина по Name.");
     System.out.println((InjectRef) ctx.getBean("injectRefName", InjectRef.class));
 
+    System.out.println("");
+    System.out.println("Демонстрация внедрения коллекций.");
+    ((CollectionInjection) ctx.getBean("injectCollection", CollectionInjection.class)).displayInfo();
+
+
   }
 
 }
